@@ -8,7 +8,7 @@
 
 ![1](https://grafana.com/api/dashboards/16292/images/12166/image)
 
-![2](https://github.com/noise131/grafana-dashboards/blob/main/blackbox_exporter-http-dashboard/images/blackbox_exporter-http-Dashboards-chinese2.png?raw=true)
+![2](https://grafana.com/api/dashboards/16292/images/12167/image)
 
 ## v2 更新概要
 
