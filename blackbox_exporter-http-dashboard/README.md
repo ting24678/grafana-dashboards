@@ -6,7 +6,7 @@
 
 **仪表板 ID :** 16292
 
-![1](https://github.com/noise131/grafana-dashboards/blob/main/blackbox_exporter-http-dashboard/images/blackbox_exporter-http-Dashboards-chinese.png?raw=true)
+![1](https://grafana.com/api/dashboards/16292/images/12166/image)
 
 ![2](https://github.com/noise131/grafana-dashboards/blob/main/blackbox_exporter-http-dashboard/images/blackbox_exporter-http-Dashboards-chinese2.png?raw=true)
 
