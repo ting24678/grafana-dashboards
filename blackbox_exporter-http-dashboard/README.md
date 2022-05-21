@@ -11,3 +11,20 @@
 
 - 新增证书剩余不足 30 天实例单独列出表格
 - 增加非 https 协议的实例单元格配色
+
+# 界面预览
+
+## 中文面板
+
+![chinese1](PreviewImages/blackbox_exporter-http-Dashboards-chinese.png)
+
+![chinese1](PreviewImages/blackbox_exporter-http-Dashboards-chinese2.png)
+
+## English panel
+
+![english1](PreviewImages/blackbox_exporter-http-Dashboards-english.png)
+
+![english1](PreviewImages/blackbox_exporter-http-Dashboards-english2.png)
+
+
+
