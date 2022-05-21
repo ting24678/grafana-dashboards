@@ -70,13 +70,13 @@
       }
     ]
   },
-  "description": "黑盒 http 监控面板",
+  "description": "blackbox_exporter HTTP monitoring panel",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "gnetId": 16292,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1653061194493,
+  "iteration": 1653059814243,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -90,7 +90,7 @@
       },
       "id": 18,
       "panels": [],
-      "title": "响应时间",
+      "title": "Response Time",
       "type": "row"
     },
     {
@@ -197,7 +197,7 @@
       },
       "id": 14,
       "panels": [],
-      "title": "http/https 监控信息",
+      "title": "HTTP Monitoring Information",
       "type": "row"
     },
     {
@@ -370,7 +370,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "状态码"
+              "options": "HTTP Status Code"
             },
             "properties": [
               {
@@ -403,31 +403,31 @@
               },
               {
                 "id": "custom.width",
-                "value": 80
+                "value": 135
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "监控实例地址"
+              "options": " Instance Address"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 400
+                "value": 488
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "证书剩余有效期"
+              "options": "Certificate Validity"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 150
+                "value": 151
               },
               {
                 "id": "unit",
@@ -435,7 +435,7 @@
               },
               {
                 "id": "noValue",
-                "value": "不是HTTPS协议"
+                "value": "Not HTTPS protocol"
               },
               {
                 "id": "thresholds",
@@ -470,7 +470,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "证书到期时间"
+              "options": "Certificate Expiration Time"
             },
             "properties": [
               {
@@ -479,7 +479,7 @@
               },
               {
                 "id": "noValue",
-                "value": "不是HTTPS协议"
+                "value": "Not HTTPS protocol"
               },
               {
                 "id": "custom.displayMode",
@@ -500,18 +500,22 @@
                     }
                   ]
                 }
+              },
+              {
+                "id": "custom.width",
+                "value": 184
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "响应时间"
+              "options": "Response Time"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 90
+                "value": 115
               },
               {
                 "id": "decimals",
@@ -546,7 +550,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "DNS查询时间"
+              "options": "DNS Query Time"
             },
             "properties": [
               {
@@ -555,7 +559,7 @@
               },
               {
                 "id": "custom.width",
-                "value": 112
+                "value": 121
               },
               {
                 "id": "custom.displayMode",
@@ -666,7 +670,7 @@
           "refId": "E"
         }
       ],
-      "title": "Detailed Info",
+      "title": "Detailed Information",
       "transformations": [
         {
           "id": "filterFieldsByName",
@@ -702,12 +706,12 @@
               "instance": 0
             },
             "renameByName": {
-              "Value #A": "状态码",
-              "Value #B": "证书剩余有效期",
-              "Value #C": "证书到期时间",
-              "Value #D": "响应时间",
-              "Value #E": "DNS查询时间",
-              "instance": "监控实例地址"
+              "Value #A": "HTTP Status Code",
+              "Value #B": "Certificate Validity",
+              "Value #C": "Certificate Expiration Time",
+              "Value #D": "Response Time",
+              "Value #E": "DNS Query Time",
+              "instance": " Instance Address"
             }
           }
         }
@@ -794,6 +798,21 @@
                 }
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Failed status instance"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
           }
         ]
       },
@@ -839,7 +858,7 @@
           "format": "time_series",
           "instant": false,
           "interval": "",
-          "legendFormat": "探测成功状态实例",
+          "legendFormat": "Success status instance",
           "range": true,
           "refId": "A"
         },
@@ -851,12 +870,12 @@
           "editorMode": "code",
           "expr": "count(probe_success{project=~\"$project\", app=~\"$app\"} == 0)",
           "hide": false,
-          "legendFormat": "探测失败状态实例",
+          "legendFormat": "Failed status instance",
           "range": true,
           "refId": "B"
         }
       ],
-      "title": "实例状态占比",
+      "title": "Instance status percentage",
       "type": "piechart"
     },
     {
@@ -869,7 +888,7 @@
       },
       "id": 12,
       "panels": [],
-      "title": "证书即将到期的实例",
+      "title": "Instance whose certificate is about to expire",
       "type": "row"
     },
     {
@@ -893,7 +912,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -906,7 +926,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "实例地址"
+              "options": " Instance Address"
             },
             "properties": [
               {
@@ -917,7 +937,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "剩余有效期"
+              "options": "Certificate Validity"
             },
             "properties": [
               {
@@ -938,7 +958,8 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "semi-dark-red"
+                      "color": "semi-dark-red",
+                      "value": null
                     },
                     {
                       "color": "red",
@@ -993,7 +1014,7 @@
           "refId": "A"
         }
       ],
-      "title": "证书不足30天过期",
+      "title": "Expired in less than 30 days",
       "transformations": [
         {
           "id": "filterFieldsByName",
@@ -1018,8 +1039,8 @@
               "project": 0
             },
             "renameByName": {
-              "Value": "剩余有效期",
-              "instance": "实例地址"
+              "Value": "Certificate Validity",
+              "instance": " Instance Address"
             }
           }
         }
@@ -1027,7 +1048,7 @@
       "type": "table"
     }
   ],
-  "refresh": "",
+  "refresh": false,
   "schemaVersion": 36,
   "style": "dark",
   "tags": [
@@ -1096,8 +1117,8 @@
     "nowDelay": ""
   },
   "timezone": "",
-  "title": "blackbox_exporter-http-Dashboards-chinese",
-  "uid": "iKcj6tXnp",
-  "version": 5,
+  "title": "blackbox_exporter-http-Dashboards-english",
+  "uid": "iKcj6tXnq",
+  "version": 10,
   "weekStart": ""
 }
