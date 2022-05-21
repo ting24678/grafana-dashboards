@@ -5,7 +5,7 @@
 - 中文版 : https://grafana.com/grafana/dashboards/16292
 - English version : [https://grafana.com/grafana/dashboards/16293](https://grafana.com/grafana/dashboards/16293)
 
-**仪表板 ID :** `16292` 、`16293`
+**仪表板 ID :** `16292`、`16293`
 
 ## v2 更新概要
 
