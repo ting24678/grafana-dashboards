@@ -13,8 +13,11 @@
 
 ## v2 更新概要
 
-- 新增证书剩余不足 30 天实例单独列出表格
-- 增加非 https 协议的实例单元格配色
+- 新增 `证书剩余不足 30 天实例` 单独列出表格
+- 增加 `非 https 协议` 的实例单元格配色
+- 修复 `Fail` 在没有失败主机时显示 `No data` 问题
+- 修复 `失败实例` 和 `实力状态占比` 受时间范围影响数据不准确问题
+- 增加 `响应码变化记录` 图表，可对过去时间的响应码变化进行查看
 
 # 界面预览
 
@@ -24,11 +27,13 @@
 
 ![chinese1](PreviewImages/blackbox_exporter-http-Dashboards-chinese2.png)
 
+![chinese1](PreviewImages/blackbox_exporter-http-Dashboards-chinese3.png)
+
 ## English panel
 
 ![english1](PreviewImages/blackbox_exporter-http-Dashboards-english.png)
 
 ![english1](PreviewImages/blackbox_exporter-http-Dashboards-english2.png)
 
-
+![english1](PreviewImages/blackbox_exporter-http-Dashboards-english3.png)
 

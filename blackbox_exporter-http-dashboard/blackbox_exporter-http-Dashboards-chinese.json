@@ -19,6 +19,12 @@
     },
     {
       "type": "panel",
+      "id": "graph",
+      "name": "Graph (old)",
+      "version": ""
+    },
+    {
+      "type": "panel",
       "id": "piechart",
       "name": "Pie chart",
       "version": ""
@@ -76,7 +82,7 @@
   "gnetId": 16292,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1653107132642,
+  "iteration": 1653119109139,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -88,7 +94,7 @@
         "x": 0,
         "y": 0
       },
-      "id": 18,
+      "id": 22,
       "panels": [],
       "title": "响应时间",
       "type": "row"
@@ -195,7 +201,7 @@
         "x": 0,
         "y": 8
       },
-      "id": 14,
+      "id": 18,
       "panels": [],
       "title": "http/https 监控信息",
       "type": "row"
@@ -867,7 +873,7 @@
         "x": 0,
         "y": 20
       },
-      "id": 12,
+      "id": 14,
       "panels": [],
       "title": "证书即将到期的实例",
       "type": "row"
@@ -962,7 +968,7 @@
         ]
       },
       "gridPos": {
-        "h": 9,
+        "h": 8,
         "w": 24,
         "x": 0,
         "y": 21
@@ -1027,6 +1033,111 @@
         }
       ],
       "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 12,
+      "panels": [],
+      "title": "响应码变化记录",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 30
+      },
+      "hiddenSeries": false,
+      "id": 24,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.5.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "probe_http_status_code{project=~\"$project\", app=~\"$app\"}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{instance}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "响应码变化记录",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:64",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:65",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     }
   ],
   "refresh": "",
@@ -1100,6 +1211,6 @@
   "timezone": "",
   "title": "blackbox_exporter-http-Dashboards-chinese",
   "uid": "iKcj6tXnp",
-  "version": 7,
+  "version": 15,
   "weekStart": ""
 }

@@ -19,6 +19,12 @@
     },
     {
       "type": "panel",
+      "id": "graph",
+      "name": "Graph (old)",
+      "version": ""
+    },
+    {
+      "type": "panel",
       "id": "piechart",
       "name": "Pie chart",
       "version": ""
@@ -76,7 +82,7 @@
   "gnetId": 16292,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1653107309573,
+  "iteration": 1653120158703,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -88,7 +94,7 @@
         "x": 0,
         "y": 0
       },
-      "id": 18,
+      "id": 23,
       "panels": [],
       "title": "Response Time",
       "type": "row"
@@ -195,7 +201,7 @@
         "x": 0,
         "y": 8
       },
-      "id": 14,
+      "id": 18,
       "panels": [],
       "title": "HTTP Monitoring Information",
       "type": "row"
@@ -426,7 +432,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 488
+                "value": 436
               }
             ]
           },
@@ -899,7 +905,7 @@
         "x": 0,
         "y": 20
       },
-      "id": 12,
+      "id": 14,
       "panels": [],
       "title": "Instance whose certificate is about to expire",
       "type": "row"
@@ -925,7 +931,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -970,7 +977,8 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "semi-dark-red"
+                      "color": "semi-dark-red",
+                      "value": null
                     },
                     {
                       "color": "red",
@@ -992,7 +1000,7 @@
         ]
       },
       "gridPos": {
-        "h": 9,
+        "h": 8,
         "w": 24,
         "x": 0,
         "y": 21
@@ -1057,6 +1065,107 @@
         }
       ],
       "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 12,
+      "panels": [],
+      "title": "Response code change record",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 30
+      },
+      "hiddenSeries": false,
+      "id": 24,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.5.0",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "probe_http_status_code{project=~\"$project\", app=~\"$app\"}",
+          "legendFormat": "{{instance}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Response code change record",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:52",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:53",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     }
   ],
   "refresh": false,
@@ -1130,6 +1239,6 @@
   "timezone": "",
   "title": "blackbox_exporter-http-Dashboards-english",
   "uid": "iKcj6tXnq",
-  "version": 11,
+  "version": 16,
   "weekStart": ""
 }
