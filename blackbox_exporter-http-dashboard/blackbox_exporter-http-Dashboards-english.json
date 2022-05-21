@@ -76,7 +76,7 @@
   "gnetId": 16292,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1653059814243,
+  "iteration": 1653107309573,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -273,7 +273,18 @@
             "fixedColor": "red",
             "mode": "fixed"
           },
-          "mappings": [],
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "index": 0,
+                  "text": "0"
+                }
+              },
+              "type": "special"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -332,8 +343,8 @@
           "exemplar": false,
           "expr": "count(probe_success{project=~\"$project\", app=~\"$app\"} == 0)",
           "hide": false,
-          "instant": false,
-          "range": true,
+          "instant": true,
+          "range": false,
           "refId": "A"
         }
       ],
@@ -856,10 +867,10 @@
           "exemplar": false,
           "expr": "count(probe_success{project=~\"$project\", app=~\"$app\"} == 1)",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "Success status instance",
-          "range": true,
+          "range": false,
           "refId": "A"
         },
         {
@@ -868,10 +879,12 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "count(probe_success{project=~\"$project\", app=~\"$app\"} == 0)",
           "hide": false,
+          "instant": true,
           "legendFormat": "Failed status instance",
-          "range": true,
+          "range": false,
           "refId": "B"
         }
       ],
@@ -912,8 +925,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -958,8 +970,7 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "semi-dark-red",
-                      "value": null
+                      "color": "semi-dark-red"
                     },
                     {
                       "color": "red",
@@ -1119,6 +1130,6 @@
   "timezone": "",
   "title": "blackbox_exporter-http-Dashboards-english",
   "uid": "iKcj6tXnq",
-  "version": 10,
+  "version": 11,
   "weekStart": ""
 }

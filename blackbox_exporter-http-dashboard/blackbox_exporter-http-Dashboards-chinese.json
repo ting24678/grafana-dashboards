@@ -76,7 +76,7 @@
   "gnetId": 16292,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1653061194493,
+  "iteration": 1653107132642,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -273,7 +273,18 @@
             "fixedColor": "red",
             "mode": "fixed"
           },
-          "mappings": [],
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "index": 0,
+                  "text": "0"
+                }
+              },
+              "type": "special"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -284,20 +295,7 @@
             ]
           }
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Value"
-            },
-            "properties": [
-              {
-                "id": "noValue",
-                "value": "0"
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 3,
@@ -332,8 +330,8 @@
           "exemplar": false,
           "expr": "count(probe_success{project=~\"$project\", app=~\"$app\"} == 0)",
           "hide": false,
-          "instant": false,
-          "range": true,
+          "instant": true,
+          "range": false,
           "refId": "A"
         }
       ],
@@ -837,10 +835,10 @@
           "exemplar": false,
           "expr": "count(probe_success{project=~\"$project\", app=~\"$app\"} == 1)",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "探测成功状态实例",
-          "range": true,
+          "range": false,
           "refId": "A"
         },
         {
@@ -849,10 +847,12 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "count(probe_success{project=~\"$project\", app=~\"$app\"} == 0)",
           "hide": false,
+          "instant": true,
           "legendFormat": "探测失败状态实例",
-          "range": true,
+          "range": false,
           "refId": "B"
         }
       ],
@@ -893,7 +893,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -938,7 +939,8 @@
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "semi-dark-red"
+                      "color": "semi-dark-red",
+                      "value": null
                     },
                     {
                       "color": "red",
@@ -1098,6 +1100,6 @@
   "timezone": "",
   "title": "blackbox_exporter-http-Dashboards-chinese",
   "uid": "iKcj6tXnp",
-  "version": 5,
+  "version": 7,
   "weekStart": ""
 }
