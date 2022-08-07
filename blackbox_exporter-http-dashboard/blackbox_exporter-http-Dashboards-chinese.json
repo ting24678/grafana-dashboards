@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
+      "name": "DS_PROMETHEUS-01",
+      "label": "Prometheus-01",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -15,7 +15,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.5.0"
+      "version": "8.5.9"
     },
     {
       "type": "panel",
@@ -45,12 +45,6 @@
       "type": "panel",
       "id": "table",
       "name": "Table",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
       "version": ""
     }
   ],
@@ -82,7 +76,7 @@
   "gnetId": 16292,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1653119109139,
+  "iteration": 1659859641427,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -100,98 +94,100 @@
       "type": "row"
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_PROMETHEUS-01}"
       },
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineStyle": {
-              "fill": "solid"
-            },
-            "lineWidth": 1,
-            "pointSize": 3,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
+          "unit": "s"
         },
         "overrides": []
       },
+      "fill": 0,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 1
       },
+      "hiddenSeries": false,
       "id": 10,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": true
       },
-      "pluginVersion": "8.5.0",
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.5.9",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_PROMETHEUS-01}"
           },
           "editorMode": "code",
-          "expr": "sum(probe_http_duration_seconds{project=~\"$project\", app=~\"$app\"}) by (instance)",
+          "expr": "probe_duration_seconds{project=~\"$project\", app=~\"$app\"}",
           "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
       ],
+      "thresholds": [],
+      "timeRegions": [],
       "title": "Response Time",
-      "type": "timeseries"
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:60",
+          "format": "s",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:61",
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
       "collapsed": false,
@@ -209,7 +205,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_PROMETHEUS-01}"
       },
       "fieldConfig": {
         "defaults": {
@@ -235,14 +231,14 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 2,
+        "w": 4,
         "x": 0,
         "y": 9
       },
-      "id": 4,
+      "id": 26,
       "options": {
-        "colorMode": "value",
-        "graphMode": "area",
+        "colorMode": "none",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -254,14 +250,14 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.0",
+      "pluginVersion": "8.5.9",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_PROMETHEUS-01}"
           },
-          "expr": "count(probe_success{project=~\"$project\", app=~\"$app\"})",
+          "expr": "count(probe_success{})",
           "refId": "A"
         }
       ],
@@ -271,83 +267,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "red",
-            "mode": "fixed"
-          },
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "index": 0,
-                  "text": "0"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 2,
-        "x": 2,
-        "y": 9
-      },
-      "id": 6,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.5.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "count(probe_success{project=~\"$project\", app=~\"$app\"} == 0)",
-          "hide": false,
-          "instant": true,
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Fail",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_PROMETHEUS-01}"
       },
       "fieldConfig": {
         "defaults": {
@@ -355,7 +275,7 @@
             "mode": "thresholds"
           },
           "custom": {
-            "align": "auto",
+            "align": "left",
             "displayMode": "auto",
             "inspect": false
           },
@@ -374,7 +294,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "状态码"
+              "options": "HTTP 状态码"
             },
             "properties": [
               {
@@ -407,7 +327,7 @@
               },
               {
                 "id": "custom.width",
-                "value": 80
+                "value": 98
               }
             ]
           },
@@ -419,7 +339,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 400
+                "value": 435
               }
             ]
           },
@@ -431,7 +351,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 150
+                "value": 133
               },
               {
                 "id": "unit",
@@ -439,7 +359,7 @@
               },
               {
                 "id": "noValue",
-                "value": "不是HTTPS协议"
+                "value": "非 HTTPS 协议"
               },
               {
                 "id": "thresholds",
@@ -483,7 +403,7 @@
               },
               {
                 "id": "noValue",
-                "value": "不是HTTPS协议"
+                "value": "非 HTTPS 协议"
               },
               {
                 "id": "custom.displayMode",
@@ -504,6 +424,10 @@
                     }
                   ]
                 }
+              },
+              {
+                "id": "custom.width",
+                "value": 159
               }
             ]
           },
@@ -515,11 +439,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 90
-              },
-              {
-                "id": "decimals",
-                "value": 6
+                "value": 85
               },
               {
                 "id": "custom.displayMode",
@@ -544,13 +464,17 @@
                     }
                   ]
                 }
+              },
+              {
+                "id": "unit",
+                "value": "s"
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "DNS查询时间"
+              "options": "DNS 查询时间"
             },
             "properties": [
               {
@@ -559,7 +483,7 @@
               },
               {
                 "id": "custom.width",
-                "value": 112
+                "value": 108
               },
               {
                 "id": "custom.displayMode",
@@ -584,13 +508,79 @@
                     }
                   ]
                 }
+              },
+              {
+                "id": "unit",
+                "value": "s"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "连通性"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 66
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "red",
+                        "index": 1,
+                        "text": "DOWN"
+                      },
+                      "1": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "UP"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background-solid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TLS v1.2"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1": {
+                        "index": 0,
+                        "text": "√"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.minWidth",
+                "value": 50
               }
             ]
           }
         ]
       },
       "gridPos": {
-        "h": 11,
+        "h": 13,
         "w": 20,
         "x": 4,
         "y": 9
@@ -607,12 +597,12 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "8.5.0",
+      "pluginVersion": "8.5.9",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_PROMETHEUS-01}"
           },
           "editorMode": "code",
           "expr": "probe_http_status_code{project=~\"$project\", app=~\"$app\"}",
@@ -624,7 +614,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_PROMETHEUS-01}"
           },
           "editorMode": "code",
           "expr": "probe_ssl_earliest_cert_expiry{project=~\"$project\", app=~\"$app\"} - time()",
@@ -636,7 +626,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_PROMETHEUS-01}"
           },
           "editorMode": "code",
           "expr": "probe_ssl_earliest_cert_expiry{project=~\"$project\", app=~\"$app\"} * 1000",
@@ -648,10 +638,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_PROMETHEUS-01}"
           },
           "editorMode": "code",
-          "expr": "sum(probe_http_duration_seconds{project=~\"$project\", app=~\"$app\"}) by (instance)",
+          "expr": "probe_duration_seconds{project=~\"$project\", app=~\"$app\"}",
           "format": "table",
           "hide": false,
           "range": true,
@@ -660,7 +650,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_PROMETHEUS-01}"
           },
           "editorMode": "code",
           "expr": "probe_dns_lookup_time_seconds{project=~\"$project\", app=~\"$app\"}",
@@ -668,6 +658,57 @@
           "hide": false,
           "range": true,
           "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS-01}"
+          },
+          "editorMode": "code",
+          "expr": "probe_success{project=~\"$project\", app=~\"$app\"}",
+          "format": "table",
+          "hide": false,
+          "range": true,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS-01}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "probe_tls_version_info{project=~\"$project\", app=~\"$app\", version=~\".*.1\"}",
+          "format": "table",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "",
+          "range": true,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS-01}"
+          },
+          "editorMode": "code",
+          "expr": "probe_tls_version_info{project=~\"$project\", app=~\"$app\", version=~\".*.2\"}",
+          "format": "table",
+          "hide": false,
+          "range": true,
+          "refId": "H"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS-01}"
+          },
+          "editorMode": "code",
+          "expr": "probe_tls_version_info{project=~\"$project\", app=~\"$app\", version=~\".*.3\"}",
+          "format": "table",
+          "hide": false,
+          "range": true,
+          "refId": "I"
         }
       ],
       "title": "Detailed Info",
@@ -682,7 +723,9 @@
                 "Value #B",
                 "Value #C",
                 "Value #D",
-                "Value #E"
+                "Value #E",
+                "Value #F",
+                "Value #H"
               ]
             }
           }
@@ -698,19 +741,23 @@
           "options": {
             "excludeByName": {},
             "indexByName": {
-              "Value #A": 3,
-              "Value #B": 4,
-              "Value #C": 5,
-              "Value #D": 1,
-              "Value #E": 2,
+              "Value #A": 4,
+              "Value #B": 5,
+              "Value #C": 6,
+              "Value #D": 2,
+              "Value #E": 3,
+              "Value #F": 1,
               "instance": 0
             },
             "renameByName": {
-              "Value #A": "状态码",
+              "Value #A": "HTTP 状态码",
               "Value #B": "证书剩余有效期",
               "Value #C": "证书到期时间",
               "Value #D": "响应时间",
-              "Value #E": "DNS查询时间",
+              "Value #E": "DNS 查询时间",
+              "Value #F": "连通性",
+              "Value #G": "TLS 版本 v1.2",
+              "Value #H": "TLS v1.2",
               "instance": "监控实例地址"
             }
           }
@@ -721,7 +768,145 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_PROMETHEUS-01}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 0,
+        "y": 12
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.9",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS-01}"
+          },
+          "expr": "count(probe_success{project=~\"$project\", app=~\"$app\"} == 1)",
+          "refId": "A"
+        }
+      ],
+      "title": "Success",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS-01}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "red",
+            "mode": "fixed"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "index": 0,
+                  "text": "0"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 2,
+        "y": 12
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.9",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS-01}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "count(probe_success{project=~\"$project\", app=~\"$app\"} == 0)",
+          "hide": false,
+          "instant": true,
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Fail",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS-01}"
       },
       "fieldConfig": {
         "defaults": {
@@ -805,7 +990,7 @@
         "h": 8,
         "w": 4,
         "x": 0,
-        "y": 12
+        "y": 14
       },
       "id": 2,
       "options": {
@@ -814,19 +999,22 @@
           "percent"
         ],
         "legend": {
-          "displayMode": "list",
-          "placement": "bottom"
+          "displayMode": "table",
+          "placement": "bottom",
+          "values": [
+            "value"
+          ]
         },
-        "pieType": "pie",
+        "pieType": "donut",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
           "fields": "",
-          "values": false
+          "values": true
         },
         "tooltip": {
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         }
       },
@@ -835,7 +1023,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_PROMETHEUS-01}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -850,7 +1038,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_PROMETHEUS-01}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -871,7 +1059,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 22
       },
       "id": 14,
       "panels": [],
@@ -881,7 +1069,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_PROMETHEUS-01}"
       },
       "fieldConfig": {
         "defaults": {
@@ -971,7 +1159,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 23
       },
       "id": 20,
       "options": {
@@ -985,12 +1173,12 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "8.5.0",
+      "pluginVersion": "8.5.9",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_PROMETHEUS-01}"
           },
           "exemplar": true,
           "expr": "probe_ssl_earliest_cert_expiry{project=~\"$project\", app=~\"$app\"} - time() < (3600 * 24 * 30)",
@@ -1040,7 +1228,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 29
+        "y": 31
       },
       "id": 12,
       "panels": [],
@@ -1054,7 +1242,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${DS_PROMETHEUS-01}"
       },
       "fill": 0,
       "fillGradient": 0,
@@ -1062,7 +1250,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 30
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 24,
@@ -1082,7 +1270,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.5.0",
+      "pluginVersion": "8.5.9",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1094,7 +1282,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_PROMETHEUS-01}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1140,7 +1328,7 @@
       }
     }
   ],
-  "refresh": "",
+  "refresh": false,
   "schemaVersion": 36,
   "style": "dark",
   "tags": [
@@ -1156,7 +1344,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "${DS_PROMETHEUS-01}"
         },
         "definition": "label_values(probe_http_status_code, project)",
         "hide": 0,
@@ -1180,7 +1368,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "${DS_PROMETHEUS-01}"
         },
         "definition": "label_values(app)",
         "hide": 0,
@@ -1211,6 +1399,6 @@
   "timezone": "",
   "title": "blackbox_exporter-http-Dashboards-chinese",
   "uid": "iKcj6tXnp",
-  "version": 15,
+  "version": 5,
   "weekStart": ""
 }
