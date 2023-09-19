@@ -23,17 +23,17 @@
 
 ## 中文面板
 
-![chinese1](PreviewImages/blackbox_exporter-http-Dashboards-chinese.png)
+![image-20230919133013061](./image/README/image-20230919133013061.png)
 
-![chinese1](PreviewImages/blackbox_exporter-http-Dashboards-chinese2.png)
+![image-20230919133018194](./image/README/image-20230919133018194.png)
 
-![chinese1](PreviewImages/blackbox_exporter-http-Dashboards-chinese3.png)
+![image-20230919133023869](./image/README/image-20230919133023869.png)
 
 ## English panel
 
-![english1](PreviewImages/blackbox_exporter-http-Dashboards-english.png)
+![image-20230919133028021](./image/README/image-20230919133028021.png)
 
-![english1](PreviewImages/blackbox_exporter-http-Dashboards-english2.png)
+![image-20230919133031977](./image/README/image-20230919133031977.png)
 
-![english1](PreviewImages/blackbox_exporter-http-Dashboards-english3.png)
+![image-20230919133035902](./image/README/image-20230919133035902.png)
 
